@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AOS 페이지</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 50px;
+    }
+
+    section>div p {
+      font-size: 30px;
+      width: 400px;
+    }
+
+    #s1 {
+      background: #1abc9c;
+    }
+
+    #s2 {
+      background: #9b59b6;
+    }
+
+    #s3 {
+      background: #f1c40f;
+    }
+
+    [data-aos='zoom-in'] {
+      animation: zoom-in 1s;
+    }
+
+    @keyframes zoom-in {
+      0% {
+        transform: scale(0.5) rotate(-180deg);
+      }
+
+      100% {
+        transform: scale(1.0);
+      }
+    }
+
+    #side-pager {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #side-pager ul {
+      list-style-type: none;
+    }
+
+    #side-pager ul>li>a {}
+
+    #side-pager ul>li.on>a {
+      color: red;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body>
+  <nav id="side-pager">
+    <ul>
+      <li><a href="#s1">1</a></li>
+      <li><a href="#s2">2</a></li>
+      <li><a href="#s3">3</a></li>
+    </ul>
+  </nav>
+  <section id="s1" data-aos="top-bottom" class='page'>
+    <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-once="false">section 1</h1>
+  </section>
+  <section id="s2" data-aos="top-bottom" class='page'>
+    <h2 data-aos="fade-right" data-aos-duration="2000">section 2</h2>
+  </section>
+  <section id="s3" data-aos="top-bottom" class='page'>
+    <div>
+      <h2>section 3</h2>
+      <article data-aos="flip-left" data-aos-duration="1000">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, eligendi voluptates non nisi ad consequuntur
+          a incidunt provident sunt ratione maiores ipsam et tempore quis obcaecati, necessitatibus qui. Omnis,
+          temporibus!</p>
+      </article>
+    </div>
+  </section>
+
+  <script>
+    // AOS 실행
+    AOS.init();
+
+    function pagerIndicator() {
+      // 위치 초기화
+      history.scrollRestoration = 'manual';
+
+      // page 개수
+      const pages = document.querySelectorAll('.page');
+      const pageNum = document.querySelectorAll('.page').length;
+
+      // 옵션
+      const option = {
+        offset: 400
+      }
+
+      // 페이지 스크롤 감지
+      window.addEventListener('scroll', function(){
+        const scrollY = window.scrollY;
+        console.log(scrollY)
+        offset = option.offset;
+
+        pages.forEach(function (page, i) {
+          const pager = document.querySelectorAll('#side-pager > ul > li');
+          if (scrollY >= page.offsetTop - offset) {
+            pager.forEach(function (p) {
+              p.classList.remove('on');
+            })
+            pager[i].classList.add('on');
+          }
+        })
+      }); // scroll
+    } // pageIndicator
+
+    pagerIndicator();
+  </script>
+</body>
+
+</html>
