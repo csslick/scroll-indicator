@@ -13,7 +13,7 @@
 </head>
 ```
 
-## CDN
+CDN
 ```
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/csslick/scroll-pager/scrollPager.min.css">
   <script src="https://cdn.jsdelivr.net/gh/csslick/scroll-pager@latest/scrollPager.min.js"></script>
