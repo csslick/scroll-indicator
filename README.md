@@ -1,4 +1,4 @@
-# scroll pager
+# scroll pager.js
 - 2022.03.21 By CSSLCIK
 - 콘텐츠 스크롤시 페이지 위치를 감지하는 pager UI
 
