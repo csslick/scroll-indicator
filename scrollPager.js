@@ -16,7 +16,7 @@
       window.addEventListener('scroll', function(){
         const scrollY = window.scrollY;
         const pages = document.querySelectorAll('.page');
-        console.log(scrollY)
+        // console.log(scrollY)
         offset = option.offset;
 
         pages.forEach(function (page, i) {
