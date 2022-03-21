@@ -107,6 +107,8 @@
     function pagerIndicator() {
       // 위치 초기화
       history.scrollRestoration = 'manual';
+      const pager = document.querySelectorAll('#side-pager > ul > li');
+      pager[0].classList.add('on');
 
       // page 개수
       const pages = document.querySelectorAll('.page');
@@ -124,7 +126,6 @@
         offset = option.offset;
 
         pages.forEach(function (page, i) {
-          const pager = document.querySelectorAll('#side-pager > ul > li');
           if (scrollY >= page.offsetTop - offset) {
             pager.forEach(function (p) {
               p.classList.remove('on');
