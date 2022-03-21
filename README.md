@@ -26,7 +26,7 @@
     <h2>section 2</h2>
   </section>
   <section id="s3" class='page'>
-      <h2>section 3</h2>
+    <h2>section 3</h2>
   </section>
 
   <script>
