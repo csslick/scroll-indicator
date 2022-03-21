@@ -39,9 +39,9 @@ function createPager(showNum) {
   // page 개수
   const pages = document.querySelectorAll('.page');
   const pageNum = document.querySelectorAll('.page').length;
-
   const sidePagerEl = document.querySelector('.side-pager');
   const ul = document.createElement('ul');
+
   pages.forEach((page, i) => {
     // console.log(pageId);
     const li = `
@@ -53,5 +53,4 @@ function createPager(showNum) {
   })
 
   sidePagerEl.appendChild(ul)
-  
 }
