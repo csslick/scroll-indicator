@@ -13,6 +13,11 @@
 </head>
 ```
 
+## CDN
+```
+  <script src="https://cdn.jsdelivr.net/gh/csslick/scroll-pager@latest/scrollPager.min.js"></script>
+```
+
 ```
 <body>
   <!-- pager UI -->
