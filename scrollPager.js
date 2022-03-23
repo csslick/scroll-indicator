@@ -1,34 +1,33 @@
+function scrollPager(option = {
+  offset: 150, // 위치 조정값,
+  showNum: false, // 숫자 표시
+}) {
 
-    function scrollPager(option = {
-      offset: 150,  // 위치 조정값,
-      showNum: false,  // 숫자 표시
-    }) {
+  // pager 생성
+  createPager(option.showNum);
 
-      // pager 생성
-      createPager(option.showNum);
+  const pager = document.querySelectorAll('.side-pager > ul > li');
+  pager[0].classList.add('on');
+  // pager 생성
+  // createPager(pages, pageNum);
 
-      const pager = document.querySelectorAll('.side-pager > ul > li');
-      pager[0].classList.add('on');
-      // pager 생성
-      // createPager(pages, pageNum);
+  // 페이지 스크롤 감지
+  window.addEventListener('scroll', function () {
+    const scrollY = window.scrollY;
+    const pages = document.querySelectorAll('.page');
+    // console.log(scrollY)
+    offset = option.offset;
 
-      // 페이지 스크롤 감지
-      window.addEventListener('scroll', function(){
-        const scrollY = window.scrollY;
-        const pages = document.querySelectorAll('.page');
-        // console.log(scrollY)
-        offset = option.offset;
-
-        pages.forEach(function (page, i) {
-          if (scrollY >= page.offsetTop - offset) {
-            pager.forEach(function (p) {
-              p.classList.remove('on');
-            })
-            pager[i].classList.add('on');
-          }
+    pages.forEach(function (page, i) {
+      if (scrollY >= page.offsetTop - offset) {
+        pager.forEach(function (p) {
+          p.classList.remove('on');
         })
-      }); // scroll event
-    } // scrollPager
+        pager[i].classList.add('on');
+      }
+    })
+  }); // scroll event
+} // scrollPager
 
 
 // pager 초기화
@@ -45,10 +44,10 @@ function createPager(showNum) {
   pages.forEach((page, i) => {
     // console.log(pageId);
     const li = `
-      <li>
-        <a href="#${page.id}">${showNum ? i+1: ''}</a>
-      </li>
-    `
+    <li>
+      <a href="#${page.id}">${showNum ? i+1: ''}</a>
+    </li>
+  `
     ul.innerHTML += li;
   })
 
